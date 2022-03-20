@@ -207,8 +207,10 @@ if __name__ == '__main__':
  import time
  import datetime
  timeline = datetime.datetime.now()
+ file1 = open("Pressure_data.txt", "a")
  print('BMP388 Test Program ...\n')
  print('Start Current Time: %s' %(timeline))
+ file1.write('Start Time: %s\n' %(timeline))
  bmp388 = BMP388()
  times=0
 
@@ -218,9 +220,9 @@ if __name__ == '__main__':
   timestamp = datetime.datetime.now()
   temperature,pressure,altitude = bmp388.get_temperature_and_pressure_and_altitude()
 
-  print(' Temperature = %.1f Pressure = %.2f Altitude =%.2f RunningTime=%.2f' %(temperature/100.0, pressure*0.0002953/100.0, altitude/100.0,times*0.504))
+  #print(' Temperature = %.1f Pressure = %.2f Altitude =%.2f RunningTime=%.2f' %(temperature/100.0, pressure*0.0002953/100.0, altitude/100.0,times*0.504))
   file1 = open("Pressure_data.txt", "a")
-  file1.write(' Temperature = %.1f Pressure = %.2f Altitude =%.2f\n RunningTime=%.2f' %(temperature/100.0, pressure*0.0002953/100.0, altitude/100.0, times*0.504))
+  file1.write(' Temperature = %.1f Pressure = %.2f Altitude =%.2f RunningTime=%.2f\n' %(temperature/100.0, pressure*0.0002953/100.0, altitude/100.0,times*0.504))
   file1.close()
 
 
